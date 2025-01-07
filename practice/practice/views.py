@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import random
+from django.views.decorators.csrf import csrf_exempt
 
 def random_page(request):
     return render(request, 'random.html')
@@ -12,6 +13,7 @@ def generate_random(request):
 def area_page(request):
     return render(request, 'area.html')
 
+@csrf_exempt
 def calculate_area(request):
     if request.method == 'POST':
         a = float(request.POST['a'])
