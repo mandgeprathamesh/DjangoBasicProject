@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,15 +15,17 @@
       <h1>Area Calculator</h1>
       <form id="area-form" hx-post="area/generate" hx-target="#area-result">
         <div class="mb-3">
-          <label for="a" class="form-label">Length (a)</label>
+          <label for="a" class="form-label">Length</label>
           <input type="number" class="form-control" id="a" name="a" required />
         </div>
         <div class="mb-3">
-          <label for="b" class="form-label">Width (b)</label>
+          <label for="b" class="form-label">Width</label>
           <input type="number" class="form-control" id="b" name="b" required />
         </div>
         <button type="submit" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' class="btn btn-primary">Calculate Area</button>
       </form>
+      <br>
+      <br>
       <p id="area-result"></p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/htmx.org@1.7.0"></script>
